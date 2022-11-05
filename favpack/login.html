@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- FavIcon Package -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favpack/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favpack/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favpack/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+    <style>
+       .header img
+       {
+          height: 200px;
+          width: 300px;
+          margin-left: 100px;
+        }
+
+        .header a{
+            float: right;
+            margin: 90px 60px 0px 0px;
+            padding: 8px;
+            color: purple;
+            text-decoration: none;
+        }
+   
+        .menu
+        {
+            grid-area:header;
+            padding: 30px;
+            text-align: center;
+            background-color:#5e548e;
+            border: 3px dotted rgb(85, 23, 85);
+        }
+        .main
+        {
+            margin-top: 20px;
+            grid-area:main;
+           
+        }
+        
+        .main img{
+            margin-left: 30px;
+        }
+        .footer
+        {
+            grid-area:footer;
+            background-color: whitesmoke;
+            padding: 100px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .footer-left{
+            float: left;
+            border:1px solid black;
+        }
+
+        .footer-center{
+            
+        }
+
+        .footer-right{
+           float: right; 
+           border:1px solid black;
+          
+        }
+
+        nav{
+            /* position: fixed; */
+        }
+        nav a{
+            text-decoration: none;
+            padding: 8px;
+            color: white;
+            border-radius: 7px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 10px;
+            font-size: 20px;
+            /* float: right; */
+        }
+       nav a:hover{
+            background-color: #fb5607;
+            color: black;
+        }
+        h1{
+            text-align: center;
+            color: #c1121f;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="l2.png">
+        <a href="login.html">LOGIN</a>
+        <a href="register.html">SIGN UP</a>     
+    </div>
+   
+        <div class="menu">
+            <nav>
+                <a href="#">Home</a>
+                <a href="">Recipes</a>
+                <a href="videos.html">Videos</Video></a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    
+        <div class="main">
+            <br><br>
+        <video src="v1.mp4" height="440px" width="100%" controls></video>
+            <br>
+            <h1>...Breakfast Recipes...</h1>
+            <hr>
+            <img style="height:400px;width:400px;" src="im2.jpg">
+            <img style="height:400px;width:400px;" src="im4.jpg">
+            <img style="height:400px;width:400px;" src="im5.jpg">
+            <br><br><br>
+
+            <h1>...Lunch Recipes...</h1>
+            <hr>
+            <img style="height:400px;width:400px;" src="im2.jpg">
+            <img style="height:400px;width:400px;" src="im4.jpg">
+            <img style="height:400px;width:400px;" src="im5.jpg">
+            <br><br><br>
+
+            <h1>...Dinner Recipes...</h1>
+            <hr>
+            <img style="height:400px;width:400px;" src="im2.jpg">
+            <img style="height:400px;width:400px;" src="im4.jpg">
+            <img style="height:400px;width:400px;" src="im5.jpg">
+            <br><br><br>
+        </div>
+       
+        <div class="footer">
+
+
+            © 2008 - 2022 Two Peas & Their Pod. All rights reserved.
+                Privacy & Copyright
+
+
+            <div class="footer-left">
+            <a href="#">Home</a><br>
+            <a href="">Recipes</a><br>
+            <a href="videos.html">Videos</Video></a><br>
+            <a href="about.html">About Us</a><br>
+            <a href="contact.html">Contact Us</a>
+           </div>
+
+           <div class="footer-right">
+            <a href="#">Home</a><br>
+            <a href="">Recipes</a><br>
+            <a href="videos.html">Videos</Video></a><br>
+            <a href="about.html">About Us</a><br>
+            <a href="contact.html">Contact Us</a>
+           </div>
+        </div>
+</body>
+</html>
