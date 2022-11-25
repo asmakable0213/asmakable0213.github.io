@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tasty Delights</title>
     <!-- FavIcon Package -->
     <link rel="apple-touch-icon" sizes="180x180" href="favpack/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favpack/favicon-32x32.png">
@@ -60,31 +60,43 @@
   
 
 
-       .header img
+  .header img
        {
-          height: 200px;
-          width: 300px;
-          margin-left: 100px;
+          height:150px;
+          width:200px;
+          float:left;
+        margin-left: 5px;
+        margin-top: 5px;
         }
 
         .header a{
             float: right;
-            margin: 90px 60px 0px 0px;
+            margin-top: 60px;
+            margin-right: 30px;
             padding: 8px;
-            color: purple;
+            color:white;
             text-decoration: none;
         }
+
+        .header a:hover{
+            background-color: #fb5607;
+            color: black;  
+            border-radius: 5px;
+        }
+
    
         .menu
         {
-            grid-area:header;
-            padding: 30px;
+            grid-area:menu;
+            padding: 50px;
             text-align: center;
             background-color:#5e548e;
             border: 3px dotted rgb(85, 23, 85);
+            
         }
 
         .main-left{
+            margin-left: 60px;
             padding-left: 30px;
             float: left;
         }
@@ -101,20 +113,11 @@
         .footer
         {
             grid-area:footer;
-            background-color: whitesmoke;
-            padding: 100px;
+            background-color:rgb(236, 229, 229);
+            color:#4b3f72;
+            padding:20px;
+            text-align: center;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .footer-left{
-            float: left;
-            border:1px solid black;
-        }
-
-        .footer-right{
-           float: right; 
-           border:1px solid black;
-          
         }
 
         nav a{
@@ -150,7 +153,7 @@
             font-family:work system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
             Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 300;
-            text-align: center;
+            /* text-align: center; */
           
         }
 
@@ -174,6 +177,7 @@
             border-radius: 10px;
             font-family:cursive;
             font-weight:bolder;
+            margin-left: 50px;
         }
             
         .b1:hover{
@@ -224,8 +228,8 @@
     </div>
     
         <div class="main-left">
-          <h1>Save Your Favourite Recipes!</h1>
-          <h2>Complete Your Registration</h2>
+          <h1 style="color:#fb5607 ;">Save Your Favourite Recipes!</h1>
+          <h2 style="color:rgb(85, 23, 85);">Complete Your Registration</h2>
           <h3>Create a free account to save your favorite recipes!</h3>
 
           <form action="" autocomplete="off">
@@ -239,10 +243,7 @@
             <input type="email" id="email" required><br><br>
 
             <label for="pass">Password:</label><br>
-            <input type="password" id="pass" required>
-
-            <label for="conpas"></label>
-            <input type="password" id="conpas" required placeholder="confirm password"><br><br>
+            <input type="password" id="pass" required><br><br>
             
             <button class="b1" type="submit">Sign Up Now</button>
             <button class="b2" type="reset">Reset</button>
@@ -258,7 +259,13 @@
         </div>
       
        <br clear="all">
-        <div class="footer"></div>
+
+       
+        <div class="footer">
+
+          <b> © 2008 - 2022 Tasty Delights. All rights reserved.
+                Privacy & Copyright</b> 
+        </div>
 
         </div>
 </body>
