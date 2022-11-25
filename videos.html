@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tasty Delights</title>
     <!-- FavIcon Package -->
     <link rel="apple-touch-icon" sizes="180x180" href="favpack/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favpack/favicon-32x32.png">
@@ -61,25 +61,34 @@
 
 
 
-       .header img
+  .header img
        {
-          height: 200px;
-          width: 300px;
-          margin-left: 100px;
+          height:150px;
+          width:200px;
+          float:left;
+        margin-left: 5px;
+        margin-top: 5px;
         }
 
         .header a{
             float: right;
-            margin: 90px 60px 0px 0px;
+            margin-top: 60px;
+            margin-right: 30px;
             padding: 8px;
-            color: purple;
+            color:white;
             text-decoration: none;
+        }
+
+        .header a:hover{
+            background-color: #fb5607;
+            color: black;  
+            border-radius: 5px;
         }
    
         .menu
         {
             grid-area:header;
-            padding: 30px;
+            padding: 50px;
             text-align: center;
             background-color:#5e548e;
             border: 3px dotted rgb(85, 23, 85);
@@ -138,7 +147,7 @@
        {
        opacity:1.0;
        border-radius:80px;
-       border:2px solid black;
+       border:1px solid black;
        }
     
     </style>
@@ -151,22 +160,23 @@
         <a href="register.html">SIGN UP</a>     
     </div>
    
-    <div class="menu">
-        <nav>
-            <a href="index.html">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Recipes</button>
-                <div class="dropdown-content">
-                  <a href="#">Vegetarian Recipes</a>
-                  <a href="#">Snacks</a>
-                  <a href="#">Salads</a>
-                </div>
-              </div>
-            <a href="videos.html">Videos</Video></a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-    </div>
+        <div class="menu">
+            
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Recipes</button>
+                    <div class="dropdown-content">
+                      <a href="#">Vegetarian Recipes</a>
+                      <a href="#">Snacks</a>
+                      <a href="#">Salads</a>
+                    </div>
+                  </div>
+                <a href="videos.html">Videos</Video></a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
     
         <div class="main">
             <table>
