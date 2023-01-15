@@ -117,6 +117,10 @@
             border-radius: 5px;
         }
 
+    .error {
+    color: red;
+    font-size: 90%;
+}
 
         .footer
         {
@@ -179,16 +183,24 @@
     
         <div class="main">
             <h2>....LOGIN HERE....</h2>
-            <form action="abc2.html" autocomplete="off">
-        
-                <label for="a2">EmailId:</label><br>
-                <input type="email" id="a2" required placeholder="Ex.abc@test.com"><br><br>
-        
-                <label for="a4">Password:</label><br>
-                <input type="password" id="a4" required><br><br>
-               
-                <button class="b1" type="submit">Submit</button>
-                </form>
+            <form name="loginForm" onsubmit="return validateForm()" autocomplete="off">
+                
+                <div class="row">
+                    <label>Email Address:</label><br>
+                    <input type="text" name="email" placeholder="Ex.abc@gmail.com">
+                    <div class="error" id="emailErr"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <label>Password:</label><br>
+                    <input type="text" name="password">
+                    <div class="error" id="passErr"></div>
+                </div>
+<br>
+                <div class="row">
+                    <input class="b1" type="submit" value="Submit">
+                </div>
+            </form>
         
         </div>
         <br><br>
@@ -197,5 +209,65 @@
             <b> © 2008 - 2022 Tasty Delights. All rights reserved.
                 Privacy & Copyright</b> 
         </div>
+
+        <script>
+            // Defining a function to display error message
+    function printError(elemId, hintMsg) {
+        document.getElementById(elemId).innerHTML = hintMsg;
+    }
+    
+    // Defining a function to validate form 
+    function validateForm() {
+        // Retrieving the values of form elements 
+       
+        var email = document.loginForm.email.value;
+        var password = document.loginForm.password.value;
+      
+        
+       
+        
+        // Defining error variables with a default value
+        var emailErr = passErr = true;
+        
+        
+        // Validate email address
+        if(email == "") {
+            printError("emailErr", "Please enter your email address");
+        } else {
+            // Regular expression for basic email validation
+            var regex = /^\S+@\S+\.\S+$/;
+            if(regex.test(email) === false) {
+                printError("emailErr", "Please enter a valid email address");
+            } else{
+                printError("emailErr", "");
+                emailErr = false;
+            }
+        }
+        
+       // Validate password
+       if(password == "") {
+            printError("passErr", "Please enter password");
+        } else {
+            
+            if(password.length<8 || password.length>8) {
+                printError("passErr", "Password length should be only 8 characters");
+            } 
+            else{
+                printError("passErr", "");
+                passErr = false;
+            }
+        }
+        
+        
+        
+        // Prevent the form from being submitted if there are any errors
+        if((emailErr|| passErr) == true) {
+           return false;
+        } else {
+            alert('Welcome to the website...!');
+        }
+    };
+        </script>
+
 </body>
 </html>
