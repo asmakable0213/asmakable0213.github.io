@@ -91,7 +91,7 @@
 
         .main-right{
             margin-top: 40px;
-            padding: 40px;
+            padding: 30px;
             margin-right: 50px;
             float: right;
             border: 1px solid black;
@@ -129,39 +129,80 @@
         }
        
         h1{
-            font-family:work system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-             Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 300;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fb5607;
+            
             
         }
 
-
-        label{
-            font-size: large;
-        }
-        
-        input{
-            
-            padding: 10px;
-            width:400px;
-            border-radius: 5px;
-        }
-
-        .b1{
-           width: 100px;
-            padding: 10px;
-            background-color:#2c0735;
-            color:white;
-            border-radius: 10px;
-            font-family:cursive;
-            font-weight:bolder;
-        }
-            
-        .b1:hover{
-            background-color:#f2b5d4;
-            color:black;
-        }
+    form {
+    width: 400px;
+    background: #fff;
+    padding: 15px 40px 40px;
+    /* border: 1px solid #ccc; */
+    margin: 50px auto 0;
+    border-radius: 5px;
+}
+label {
+    font-size: large;
+    display: block;
+    margin-bottom: 5px
+}
+label i {
+    color: #999;
+    font-size: 80%;
+}
+input{
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+textarea{
+    border: 1px solid #ccc;
+    padding: 35px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.row {
+    padding-bottom: 10px;
+}
+.form-inline {
+    border: 1px solid #ccc;
+    padding: 8px 10px 4px;
+    border-radius: 2px;
+}
+.form-inline label, .form-inline input {
+    display: inline-block;
+    width: auto;
+    padding-right: 15px;
+}
+.error {
+    color: red;
+    font-size: 90%;
+}
+input[type="submit"] {
+    font-size: 110%;
+    font-weight: 100;
+    width: 100px;
+    background-color:#2c0735;
+    color:white;
+    border-radius: 10px;
+    font-family:cursive;
     
+    margin-top: 10px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color:#f2b5d4;
+    color:black;
+}
+
+
         
         .footer
         {
@@ -206,33 +247,40 @@
             </div>
 
         <div class="main-right">
-          <h1>CONTACT</h1>
+          <h1>Contact Us</h1>
           
-          <form action="" autocomplete="off">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" required><br><br>
+          <form name="contactForm" onsubmit="return validateForm()">
+            
+            <div class="row">
+                <label>Name:</label>
+                <input type="text" name="name">
+                <div class="error" id="nameErr"></div>
+            </div>
+            <div class="row">
+                <label>Mobile Number:</label>
+                <input type="text" name="mobile" maxlength="10">
+                <div class="error" id="mobileErr"></div>
+            </div>
+            <div class="row">
+                <label>Email Address:</label>
+                <input type="text" name="email">
+                <div class="error" id="emailErr"></div>
+            </div>
 
-            <label for="sub">Mobile No:</label><br>
-            <input type="tel" id="sub" required pattern="[0-9]{3}[0-9]{3}[0-9]{4}"><br><br>
-
-            <label for="email">Email Address:</label><br>
-            <input type="email" id="email" required><br><br>
-
-            <label for="com">Comment:</label><br>
-            <textarea name="" id="" cols="55" rows="10" required></textarea><br><br>
-
-            <button class="b1" type="submit">Send</button>
-        
-          </form>
+            <div class="row">
+                <label>Comment:</label>
+                <textarea type="text" name="comment"></textarea>
+                <div class="error" id="commentErr"></div>
+            </div>
+             
+            <div class="row">
+                <input type="submit" value="Send">
+            </div>
+        </form>
           </div>
 
           <br clear="all">
-          <div class="right-bottom">
-
-          </div>
-
-       
-      
+         
         <br>
        <br clear="all">
        <div class="footer">
@@ -240,5 +288,85 @@
         <b> © 2008 - 2022 Tasty Delights. All rights reserved.
               Privacy & Copyright</b> 
       </div>
+
+      <script>
+        // Defining a function to display error message
+function printError(elemId, hintMsg) {
+    document.getElementById(elemId).innerHTML = hintMsg;
+}
+
+// Defining a function to validate form 
+function validateForm() {
+    // Retrieving the values of form elements 
+    var name = document.contactForm.name.value;
+    var email = document.contactForm.email.value;
+    var mobile = document.contactForm.mobile.value;
+    var comment = document.contactForm.comment.value;
+    
+    
+   
+    
+	// Defining error variables with a default value
+    var nameErr = emailErr = mobileErr = commentErr = true;
+    
+    // Validate name
+    if(name == "") {
+        printError("nameErr", "Please enter your name");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("nameErr", "Please enter a valid name");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+        }
+    }
+    
+    // Validate email address
+    if(email == "") {
+        printError("emailErr", "Please enter your email address");
+    } else {
+        // Regular expression for basic email validation
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(email) === false) {
+            printError("emailErr", "Please enter a valid email address");
+        } else{
+            printError("emailErr", "");
+            emailErr = false;
+        }
+    }
+    
+    // Validate mobile number
+    if(mobile == "") {
+        printError("mobileErr", "Please enter your mobile number");
+    } else {
+        var regex = /^[1-9]\d{9}$/;
+        if(regex.test(mobile) === false) {
+            printError("mobileErr", "Please enter a valid 10 digit mobile number");
+        } else{
+            printError("mobileErr", "");
+            mobileErr = false;
+        }
+    }
+    
+   // Validate comment
+   if(comment == "") {
+        printError("commentErr", "Please enter comment here");
+    } else {
+        printError("mobileErr", "");
+            commentErr = false;          
+       
+    }
+   
+    
+    // Prevent the form from being submitted if there are any errors
+    if((nameErr || emailErr || mobileErr|| commentErr ) == true) {
+       return false;
+    } else {
+       
+        alert('Thank You..!We will shortly contact you...');
+    }
+};
+    </script>
 </body>
 </html>
