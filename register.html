@@ -169,37 +169,52 @@
             border-radius: 5px;
         }
 
-        .b1{
-           
-            padding: 10px;
-            background-color:#dce1de;
-            color:black;
-            border-radius: 10px;
-            font-family:cursive;
-            font-weight:bolder;
-            margin-left: 50px;
-        }
-            
-        .b1:hover{
-            background-color:black;
-            color:white;
-        }
         
-        .b2{
-           width: 100px;
-            padding: 10px;
-            background-color:#dce1de;
-            color:black;
-            border-radius: 10px;
-            font-family:cursive;
-            font-weight:bolder;
-       }
-           
-       .b2:hover{
-           background-color:black;
-           color:white;}
-       
-        
+        input[type="submit"] {
+        font-family:cursive;
+        font-weight:bolder;
+        width: 110px;
+        border-radius: 10px;
+        background-color:#dce1de;
+        background-color:#dce1de;
+        color:black;
+        margin-left: 35px;
+        margin-top: 10px;
+        cursor: pointer;
+
+}
+       input[type="submit"]:hover {
+        font-family:cursive;
+        font-weight:bolder;
+        width: 110px;
+       background-color:black;
+       color:white;
+}
+input[type="reset"] {
+        font-family:cursive;
+        font-weight:bolder;
+        width: 110px;
+        border-radius: 10px;
+        background-color:#dce1de;
+        background-color:#dce1de;
+        color:black;
+        margin-left: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+
+}
+       input[type="reset"]:hover {
+        font-family:cursive;
+        font-weight:bolder;
+        width: 110px;
+       background-color:black;
+       color:white;
+}
+
+.error {
+    color: red;
+    font-size: 90%;
+}
     </style>
 </head>
 <body>
@@ -232,23 +247,46 @@
           <h2 style="color:rgb(85, 23, 85);">Complete Your Registration</h2>
           <h3>Create a free account to save your favorite recipes!</h3>
 
-          <form action="" autocomplete="off">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" required><br><br>
+          <form name="signupForm" onsubmit="return validateForm()">
+            <h2>Application Form</h2>
+            <div class="row">
+                <label>Name:</label><br>
+                <input type="text" name="name">
+                <div class="error" id="nameErr"></div>
+            </div>
+            <br>
+            <div class="row">
+                <label>Mobile Number:</label><br>
+                <input type="text" name="mobile" maxlength="10">
+                <div class="error" id="mobileErr"></div>
+            </div>
+            <br>
+            <div class="row">
+                <label>Email Address:</label><br>
+                <input type="text" name="email">
+                <div class="error" id="emailErr"></div>
+            </div>
 
-            <label for="mob">Mobile No:</label><br>
-            <input type="text" id="mob" required><br><br>
+            <br>
+            <div class="row">
+                <label>Password:</label><br>
+                <input type="text" name="password">
+                <div class="error" id="passErr"></div>
+            </div>
 
-            <label for="email">Email Address:</label><br>
-            <input type="email" id="email" required><br><br>
-
-            <label for="pass">Password:</label><br>
-            <input type="password" id="pass" required><br><br>
-            
-            <button class="b1" type="submit">Sign Up Now</button>
-            <button class="b2" type="reset">Reset</button>
-
-          </form>
+            <br>
+            <div class="row">
+                <label>Confirm Password:</label><br>
+                <input type="text" name="conpassword">
+                <div class="error" id="conpassErr"></div>
+            </div>
+           
+            <br>
+            <div class="row">
+                <input type="submit" value="Sign Up Now">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
 
 
           <h4>Already have an account?<a href="login.html"><b>Login here</b></a></h4>
@@ -262,11 +300,114 @@
 
        
         <div class="footer">
-
           <b> © 2008 - 2022 Tasty Delights. All rights reserved.
                 Privacy & Copyright</b> 
         </div>
-
         </div>
+
+
+
+        <script>
+            // Defining a function to display error message
+    function printError(elemId, hintMsg) {
+        document.getElementById(elemId).innerHTML = hintMsg;
+    }
+    
+    // Defining a function to validate form 
+    function validateForm() {
+        // Retrieving the values of form elements 
+        var name = document.signupForm.name.value;
+        var email = document.signupForm.email.value;
+        var mobile = document.signupForm.mobile.value;
+        var password = document.signupForm.password.value;
+        var conpassword = document.signupForm.conpassword.value;
+        
+        
+        
+        // Defining error variables with a default value
+        var nameErr = emailErr = mobileErr = passErr = conpassErr = true;
+        
+        // Validate name
+        if(name == "") {
+            printError("nameErr", "Please enter your name");
+        } else {
+            var regex = /^[a-zA-Z\s]+$/;                
+            if(regex.test(name) === false) {
+                printError("nameErr", "Please enter a valid name");
+            } else {
+                printError("nameErr", "");
+                nameErr = false;
+            }
+        }
+        
+        // Validate email address
+        if(email == "") {
+            printError("emailErr", "Please enter your email address");
+        } else {
+            // Regular expression for basic email validation
+            var regex = /^\S+@\S+\.\S+$/;
+            if(regex.test(email) === false) {
+                printError("emailErr", "Please enter a valid email address");
+            } else{
+                printError("emailErr", "");
+                emailErr = false;
+            }
+        }
+        
+        // Validate mobile number
+        if(mobile == "") {
+            printError("mobileErr", "Please enter your mobile number");
+        } else {
+            var regex = /^[1-9]\d{9}$/;
+            if(regex.test(mobile) === false) {
+                printError("mobileErr", "Please enter a valid 10 digit mobile number");
+            } else{
+                printError("mobileErr", "");
+                mobileErr = false;
+            }
+        }
+
+        // Validate password
+        if(password == "") {
+            printError("passErr", "Please enter password");
+        } else {
+            
+            if(password.length<8 || password.length>8) {
+                printError("passErr", "Password length should be only 8 characters");
+            } 
+            else{
+                printError("passErr", "");
+                passErr = false;
+            }
+        }
+
+        // Validate confirm password
+        if(conpassword == "") {
+            printError("conpassErr", "Please enter and confirm password");
+        } else {
+            
+            if(password!==conpassword) {
+                printError("conpassErr", "Password and confirm password mismatch");
+            } 
+            else{
+                printError("conpassErr", "");
+                passErr = false;
+            }
+        }
+    
+        
+       
+        
+        // Prevent the form from being submitted if there are any errors
+        if((nameErr || emailErr || mobileErr || passErr || conpassErr) == true) {
+           return false;
+        } else {
+           
+            alert('Registerration is successful...!');
+        }
+    };
+        </script>
+    
+    
 </body>
 </html>
